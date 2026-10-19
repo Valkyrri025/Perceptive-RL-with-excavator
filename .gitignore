@@ -1,0 +1,19 @@
+# This repository is a demonstration portfolio, not a model/source release.
+__pycache__/
+.venv/
+.DS_Store
+*.pt
+*.pth
+*.onnx
+*.ckpt
+*.npy
+*.npz
+*.urdf
+*.obj
+*.stl
+*.usd
+*.usda
+*.usdc
+model/
+models/
+assets/

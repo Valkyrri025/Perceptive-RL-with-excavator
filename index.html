@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Selected simulation demonstrations of a geometry-aware excavator grapple pickup policy.">
+<title>Perceptive RL with an Excavator · Video portfolio</title>
+<style>
+:root{color-scheme:dark;--bg:#10151d;--panel:#19212d;--ink:#eef3f8;--muted:#aab9ca;--line:#303d4e;--accent:#f5ae4c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,sans-serif}
+main{max-width:1160px;margin:auto;padding:48px 28px 40px}a{color:var(--accent);text-underline-offset:4px}header{max-width:850px;margin-bottom:34px}
+.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);font-weight:700}h1{font-size:clamp(34px,5vw,58px);line-height:1.08;letter-spacing:-.035em;margin:14px 0 20px}h2{font-size:24px;line-height:1.3;margin:0 0 14px}p{margin:0 0 16px}.lede{font-size:20px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}.stat{padding:20px 24px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}.stat strong{display:block;font-size:30px;line-height:1.2}.stat span{color:var(--muted);font-size:14px}
+.note{color:var(--muted);font-size:14px;max-width:930px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:28px 0 44px}.card{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel)}video{display:block;width:100%;aspect-ratio:16/9;background:#080c12}.caption{padding:20px}.caption h3{font-size:19px;margin:0 0 8px}.caption p{color:var(--muted);font-size:15px;margin:0 0 10px}.caption a{font-size:14px}
+.details{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px;border-top:1px solid var(--line);padding-top:34px}.details p,.details li{color:var(--muted)}ul{padding-left:22px;margin:0}li{margin-bottom:10px}.flow{font-family:ui-monospace,monospace;font-size:14px;line-height:2;padding:16px 20px;border-left:3px solid var(--accent);background:var(--panel);margin:20px 0}.scope{margin-top:36px;padding:24px;border:1px solid var(--line);border-radius:12px}.scope p{margin:0;color:var(--muted)}footer{margin-top:32px;color:var(--muted);font-size:13px}
+@media(max-width:700px){main{padding:30px 18px}.stats{gap:9px}.stat{padding:15px 12px}.stat strong{font-size:25px}.grid,.details{grid-template-columns:1fr}.lede{font-size:18px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="eyebrow">Robotics · Reinforcement learning · Sparse geometry</div>
+<h1>Learning to pick up<br>more than rocks.</h1>
+<p class="lede">A suspended excavator grapple learns to handle objects of different shapes and sizes. This portfolio shows work on geometric observations, policy transfer, reward design and contact behavior.</p>
+<a href="https://github.com/Valkyrri025/Perceptive-RL-with-excavator">Project repository ↗</a>
+</header>
+<div class="stats" aria-label="Project results">
+<div class="stat"><strong>20</strong><span>surface points per object</span></div>
+<div class="stat"><strong>36</strong><span>variants: 12 families × 3 sizes</span></div>
+<div class="stat"><strong>88.7%</strong><span>383 / 432 balanced simulation trials</span></div>
+</div>
+<p class="note">The four clips below are selected successful episodes from frozen checkpoint 936, played at 1× simulation speed. The evaluation result comes from a separate balanced test with 12 reset identities per variant.</p>
+<section class="grid" aria-label="Selected pickup demonstrations">
+<article class="card">
+<video controls playsinline muted preload="metadata" poster="media/ball_medium.png" aria-label="Medium ball pickup simulation"><source src="media/ball_medium.webm" type="video/webm">Download the video using the link below.</video>
+<div class="caption"><h3>Medium ball</h3><p>Approach, close, lift and settle into a stable hold.</p><a href="media/ball_medium.webm">Download video</a></div>
+</article>
+<article class="card">
+<video controls playsinline muted preload="metadata" poster="media/ball_large.png" aria-label="Large ball pickup simulation"><source src="media/ball_large.webm" type="video/webm">Download the video using the link below.</video>
+<div class="caption"><h3>Large ball</h3><p>The same policy handles a larger object diameter.</p><a href="media/ball_large.webm">Download video</a></div>
+</article>
+<article class="card">
+<video controls playsinline muted preload="metadata" poster="media/minion_large.png" aria-label="Irregular Minion-shaped object pickup simulation"><source src="media/minion_large.webm" type="video/webm">Download the video using the link below.</video>
+<div class="caption"><h3>Irregular object</h3><p>A Minion-shaped object tests pickup beyond simple primitives.</p><a href="media/minion_large.webm">Download video</a></div>
+</article>
+<article class="card">
+<video controls playsinline muted preload="metadata" poster="media/stick_large.png" aria-label="Long stick pickup simulation"><source src="media/stick_large.webm" type="video/webm">Download the video using the link below.</video>
+<div class="caption"><h3>Long stick</h3><p>An elongated object tests grasp placement and retention.</p><a href="media/stick_large.webm">Download video</a></div>
+</article>
+</section>
+<section class="details">
+<div><h2>What was explored</h2>
+<p>A PointNet-style encoder turns an unordered sparse surface representation into geometry features for the actor. A previously trained rock-pickup policy supplies imitation examples, followed by PPO fine-tuning across the full object catalog.</p>
+<div class="flow">20 surface points + robot state<br>→ PointNet encoder + actor MLP<br>→ arm and finger commands</div>
+<p>The grapple has two passive suspension hinges. The policy commands the arm and fingers rather than directly actuating those hinges.</p></div>
+<div><h2>What counts as success?</h2>
+<ul><li>Lift the object 2 m above its initial center-of-mass height.</li><li>Maintain a stable grasp continuously for 2 seconds, with ground clearance and low motion/slip.</li><li>Keep the carrier within 15° of vertical and the passive hinges inside their configured bounds.</li></ul>
+<p>Reward and hold-criterion revisions addressed a learned strategy that used suspension stops for support. Supported-carry tilt averaged 4.4°, with nominal stop contact for about 0.9% of that time.</p></div>
+</section>
+<section class="scope"><h2>Current scope and limitations</h2><p>These are simulation results on the training asset catalog with new reset cases. Sparse points and state feedback currently come from the simulator, rather than cameras or LiDAR. This is not a real-hardware demonstration or an unseen-shape generalization claim. Thin sticks, some large irregular objects, drops and settling remain challenges. This repository shares videos and a written project description; the private simulator, training code, assets and policy weights are not distributed.</p></section>
+<footer>Video portfolio · frozen checkpoint 936 · recorded at 20 fps · developed within a larger private robotics project.<br><a href="README.md">Read the project overview and evaluation details</a></footer>
+</main>
+</body>
+</html>

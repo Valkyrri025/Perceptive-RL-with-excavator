@@ -1,0 +1,49 @@
+{
+  "type": "selected_simulation_demonstrations",
+  "clips": [
+    {
+      "asset": "ball_medium",
+      "checkpoint_iteration": 936,
+      "frames": 102,
+      "fps": 20,
+      "speed": "real-time simulation playback",
+      "duration_seconds": 5.1,
+      "selection": "selected successful example, not a random success-rate sample",
+      "file": "ball_medium.webm",
+      "sha256": "feae2755675fce5a503629320f86cdfc31b4150ca1dcf47dd8cf2f5260e1b3dc"
+    },
+    {
+      "asset": "ball_large",
+      "checkpoint_iteration": 936,
+      "frames": 110,
+      "fps": 20,
+      "speed": "real-time simulation playback",
+      "duration_seconds": 5.5,
+      "selection": "selected successful example, not a random success-rate sample",
+      "file": "ball_large.webm",
+      "sha256": "a9fcb385094ba92c7cf5d7b813a7e20cc44b1b14b86a441a51e26dceda86685c"
+    },
+    {
+      "asset": "minion_large",
+      "checkpoint_iteration": 936,
+      "frames": 220,
+      "fps": 20,
+      "speed": "real-time simulation playback",
+      "duration_seconds": 11.0,
+      "selection": "selected successful example, not a random success-rate sample",
+      "file": "minion_large.webm",
+      "sha256": "b9239ebcc5a94b512ddbe49713780bf0bbde07d5c20848c77f6fc7b9c96a0a09"
+    },
+    {
+      "asset": "stick_large",
+      "checkpoint_iteration": 936,
+      "frames": 120,
+      "fps": 20,
+      "speed": "real-time simulation playback",
+      "duration_seconds": 6.0,
+      "selection": "selected successful example, not a random success-rate sample",
+      "file": "stick_large.webm",
+      "sha256": "2a3f9dbb356d183fc80e19be00b99d7a99e11dd788914b913ac818c4d07aa3ca"
+    }
+  ]
+}
